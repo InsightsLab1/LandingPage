@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ParkRules — InsightsLab1</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <header>
+    <h1>InsightsLab1</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="past-projects.html">Past Projects</a>
+      <a href="current-projects.html">Current Projects</a>
+      <a href="resume.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>ParkRules.com</h2>
+    <p><strong>A park finder &amp; legal research tool</strong> that uses AI agents to navigate federal, state, and local regulations and tell you exactly what’s allowed (and what’s not) at any given park.</p>
+
+    <h3>Key Questions</h3>
+    <ul>
+      <li>Can I view the sunset here?</li>
+      <li>Are dogs or drones permitted?</li>
+      <li>Is BBQ, campfires, swimming, boating, fishing allowed?</li>
+      <li>Do I need a permit for overnight camping?</li>
+      <li>What food storage or ATV rules apply?</li>
+    </ul>
+
+    <h3>Data Sources &amp; Research</h3>
+    <ul>
+      <li><strong>Federal Regulations</strong> – BLM, National Forests, National Parks rules by district/region</li>
+      <li><strong>State Laws</strong> – 50 states × key statutes</li>
+      <li><strong>Municipal Codes</strong> – via Municode library</li>
+      <li><strong>County Ordinances</strong></li>
+      <li><strong>Park-Specific Regulations</strong> – posted rules, seasonal notices</li>
+    </ul>
+
+    <h3>Architecture</h3>
+    <ul>
+      <li>GIS data of parks &amp; trailheads, tagged with governing agencies</li>
+      <li>Regulatory text segmented by agency metadata</li>
+      <li>Joined on agency metadata so the AI agent knows which rules apply to each location</li>
+      <li>Interactive map: user clicks a park, AI reads the relevant text and summarizes allowed vs. prohibited activities</li>
+    </ul>
+
+    <h3>Workflow Example</h3>
+    <ol>
+      <li>User selects “Bighorn National Forest” on the map</li>
+      <li>Agent loads applicable USDA Forest Service district regulations</li>
+      <li>Agent augments with state hunting/fishing statutes</li>
+      <li>Agent checks local county codes &amp; park postings</li>
+      <li>Final summary presented: “Backpacking allowed, Fires not allowed without permit, Dogs not allowed, ATV allowed off-trail”</li>
+    </ol>
+
+    <h3>Value Proposition</h3>
+    <ul>
+      <li>Avoid unintended fines or criminal penalties</li>
+      <li>Quickly find parks that allow your activities</li>
+      <li>Raise awareness of obscure or severe local regulations</li>
+      <li>Leverage AI to digest thousands of pages of legal text in seconds</li>
+    </ul>
+
+    <p><em>Powered by InsightsLab1’ AI-driven data services.</em></p>
+  </div>
+
+  <footer>
+    &copy; 2025 InsightsLab — <a href="contact.html">Contact</a>
+  </footer>
+</body>
+</html>
