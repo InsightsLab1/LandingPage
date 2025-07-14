@@ -1,23 +1,22 @@
 ﻿/* style.css */
 
+/* —— Color Palette —— */
 :root {
   --brand-color: #2c3e50;
-  --accent: #e67e22;
-  --bg: #e0e0e0;
-  --text: #333;
+  --accent:     #e67e22;
+  --bg:         #e0e0e0;
+  --text:       #333;
 }
 
+/* —— Global Resets —— */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 html, body {
   height: 100%;
-  margin: 0;
 }
-
 body {
   display: flex;
   flex-direction: column;
@@ -27,48 +26,160 @@ body {
   line-height: 1.6;
 }
 
+/* —— Header & Navigation —— */
 header {
   background: var(--brand-color);
-  color: white;
+  color: #fff;
   padding: 1rem;
   text-align: center;
 }
-
 header h1 {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
-
 header p {
-  margin-top: 0;
+  margin: 0;
   margin-bottom: 1rem;
   font-style: italic;
 }
-
+nav {
+  margin-top: 0.5rem;
+}
 nav a {
-  color: white;
+  color: #fff;
   margin: 0 1rem;
   text-decoration: none;
   font-weight: bold;
 }
-
 nav a:hover {
   color: var(--accent);
 }
+/* Active nav link */
+.main-nav a.active {
+  color: var(--accent);
+}
 
-/* —— main content card —— */
+/* —— Wrapper (page width constraint) —— */
+.wrapper {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* —— Section Title —— */
+.section-title {
+  margin: 2rem 0 1rem;
+  font-size: 1.75rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+/* —— Product Grid & Cards —— */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card styling (with accent stripe and deeper shadow) */
+.products-card,
+.Product-card {
+  position: relative;
+  background: #d7dde0;      /* darker card background */
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 
+    0 6px 10px rgba(0,0,0,0.08),
+    0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.products-card::before,
+.Product-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent);
+}
+.products-card:hover,
+.Product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 12px 20px rgba(0,0,0,0.12),
+    0 4px 6px rgba(0,0,0,0.08);
+}
+
+/* Icon container */
+.products-icon,
+.Product-icon {
+  background: transparent;   /* show card background through */
+  padding: 1.5rem 0;         /* vertical padding only */
+  text-align: center;
+}
+
+/* Ensure uniform icon sizing */
+.products-card .products-icon,
+.Product-card .Product-icon {
+  width: 100px;      
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.products-card .products-icon img,
+.Product-card .Product-icon img {
+  width: 64px !important;
+  height: 64px !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* Content inside each card */
+.products-content,
+.Product-content {
+  padding: 1rem 1.5rem 1.5rem;
+}
+.products-content h3,
+.Product-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+.products-content p,
+.Product-content p {
+  margin: 0 0 1rem;
+  color: #555;
+}
+
+/* —— Button Styles —— */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.btn:hover {
+  background: #d35400;
+}
+
+/* —— Legacy Container Card (for other pages) —— */
 .container {
-  position: relative;    /* for background pseudo-element */
-  overflow: hidden;      /* clip the bg image */
-  flex: 1;               /* grow to fill vertical space */
-  min-height: 0;         /* allow flex child to size correctly */
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
   max-width: 800px;
-  margin: 0 auto;        /* flush under header */
-  background: #d7dde0;   /* darker card color */
+  margin: 0 auto;
+  background: #d7dde0;
   padding: 2rem 1rem;
   border-radius: 8px;
 }
-
-/* background image at 15% opacity, covering and preserving aspect ratio */
 .container::before {
   content: "";
   position: absolute;
@@ -78,37 +189,32 @@ nav a:hover {
   pointer-events: none;
   z-index: 0;
 }
-
-/* ensure content sits above the bg image */
 .container > * {
   position: relative;
   z-index: 1;
 }
 
 h1, h2, h3 {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
-
 .container h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-/* —— buttons & links —— */
+/* —— Buttons & Links for Other Pages —— */
 a.button {
   display: inline-block;
   background: var(--accent);
-  color: white;
-  padding: .5rem 1rem;
-  margin: .5rem 0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
   text-decoration: none;
   border-radius: 4px;
 }
-
 a.button:hover {
   background: #d35400;
 }
-
 .explore-buttons {
   display: flex;
   flex-direction: column;
@@ -117,36 +223,33 @@ a.button:hover {
   margin: 1rem 0;
 }
 
-/* —— form elements —— */
+/* —— Form Elements —— */
 form input,
 form textarea {
   width: 100%;
-  padding: .5rem;
+  padding: 0.5rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
 form button {
   background: var(--accent);
-  color: white;
+  color: #fff;
   border: none;
-  padding: .75rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   cursor: pointer;
   border-radius: 4px;
 }
-
 form button:hover {
   background: #d35400;
 }
 
-/* —— sticky footer —— */
+/* —— Footer —— */
 footer {
   background: var(--brand-color);
   padding: 1rem 0;
-  margin-top: auto;      /* push footer down */
+  margin-top: auto;
 }
-
 .footer-container {
   max-width: 800px;
   margin: 0 auto;
@@ -154,17 +257,50 @@ footer {
   justify-content: center;
   gap: 1.5rem;
 }
-
 .footer-container a {
-  padding: .4rem .8rem;
+  padding: 0.4rem 0.8rem;
   background: var(--accent);
-  color: white;
+  color: #fff;
   text-decoration: none;
   border-radius: 20px;
   font-weight: 500;
-  transition: background .2s ease;
+  transition: background 0.2s ease;
 }
-
 .footer-container a:hover {
   background: #d35400;
+}
+/* default for all product icons (if you haven’t already) */
+.products-icon img {
+  max-width: 80px;    /* or whatever your standard size is */
+  height: auto;
+}
+
+/* override for the ParkRules logo only */
+.parkrules-logo {
+  max-width: 200px;   /* bump this up or down to taste */
+  height: auto;
+}
+/* —— homepage full-width hero tweaks —— */
+
+/* let the container span edge-to-edge on just the homepage */
+body.homepage .container {
+  max-width: 100%;
+  margin: 0;           /* remove auto centering */
+  border-radius: 0;    /* flush corners */
+  padding: 3rem 1rem;  /* extra breathing room if you like */
+}
+
+/* shrink & reposition the background logo on the homepage */
+body.homepage .container::before {
+  background-image: url('logo_bulb.png');
+  background-repeat: no-repeat;
+  background-position: center top;  /* move it up if needed */
+  background-size: contain;         /* preserve aspect ratio, fit inside */
+  opacity: 0.1;                     /* lighter watermark */
+}
+/* on homepage only, center the inner content */
+body.homepage .container .content-inner {
+  max-width: 800px;     /* same width as before */
+  margin: 0 auto;       /* center horizontally */
+  padding: 0 1rem;      /* optional side-padding */
 }
