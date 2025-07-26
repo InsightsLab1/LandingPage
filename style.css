@@ -304,3 +304,81 @@ body.homepage .container .content-inner {
   margin: 0 auto;       /* center horizontally */
   padding: 0 1rem;      /* optional side-padding */
 }
+/* —— Blog Listing Styles —— */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.article-card {
+  background: #d7dde0;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow:
+    0 6px 10px rgba(0,0,0,0.08),
+    0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.article-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 12px 20px rgba(0,0,0,0.12),
+    0 4px 6px rgba(0,0,0,0.08);
+}
+.article-card h3 {
+  margin-bottom: 0.5rem;
+}
+.article-card .article-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+.article-card p {
+  margin-bottom: 1rem;
+}
+
+/* —— Article Page Styles —— */
+.article-header {
+  margin: 2rem 0 1rem;
+}
+.article-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.article-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+.article-content img {
+  max-width: 100%;
+  margin: 1rem 0;
+}
+.article-content p,
+.article-content h2,
+.article-content h3 {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+.article-content pre {
+  background: #f4f4f4;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+/* —— Article Header Background & Meta Color —— */
+.article-header {
+  background-color: var(--brand-color); /* your dark/navy tone */
+  color: #fff;                          /* ensure all text defaults to white */
+  padding: 2rem 1rem;                   /* give it some breathing room */
+  text-align: center;
+}
+
+.article-header .article-meta {
+  color: rgba(255,255,255,0.8);         /* a slightly translucent white */
+  font-style: italic;                   /* keep the italic look if you like */
+  margin-bottom: 0;                     /* tighten the spacing under the meta */
+}
